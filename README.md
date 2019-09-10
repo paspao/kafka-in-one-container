@@ -76,7 +76,6 @@ stdout_logfile=/dev/fd/1
 stdout_logfile_maxbytes=0
 redirect_stderr=true
 command=/kafka_2.12-2.3.0/bin/kafka-topics.sh --create --zookeper localhost:2181 --replication-factor 1 --partitions 1 --topic deliveryservice
-
 ```
 
 Supervisor starts Zookeeper and it waits 5 seconds, then it starts Kafka broker. 
@@ -87,7 +86,7 @@ Build
 
 ```bash
 docker build -t paspaola/kafka-mcpaspao:0.0.1 .
-``
+```
 
 Run
 ---
