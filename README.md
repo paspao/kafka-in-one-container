@@ -1,5 +1,6 @@
 Kafka in One container
 ======================
+!(Build status)[https://api.travis-ci.org/paspao/kafka-in-one-container.svg?branch=master]
 
 In many situations, I need an instance of Kafka for development purpose - if you develop services in a microservice architecture you know my problem! - but the lastest versions of Kafka need an instance of Zookeeper to start, this is very frustrating, you need a docker-compose only to make a test.
 
