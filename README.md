@@ -72,13 +72,13 @@ Build
 -----
 
 ```bash
-docker build -t paspaola/kafka-one-continer:0.0.1 .
+docker build -t paspaola/kafka-one-container:0.0.1 .
 ```
 
 Run
 ---
 
 ```bash
-docker run -it -p2181:2181 -p9092:9092 -e "KAFKA_ADVERTISED_LISTNERS={your-host-address}" paspaola/kafka-one-continer:0.0.1
+docker run -it -p2181:2181 -p9092:9092 -e "KAFKA_ADVERTISED_LISTNERS={your-host-address}" paspaola/kafka-one-container:0.0.1
 ```
 
