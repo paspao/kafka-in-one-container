@@ -1,9 +1,8 @@
 FROM adoptopenjdk/openjdk11-openj9
-#ENV HTTP_PROXY 
-#ENV HTTPS_PROXY 
-RUN apt update
-RUN apt install -y supervisor
+LABEL maintainer="pasquale.paola@gmail.com" 
+COPY start.sh /
+RUN apt update && apt install -y supervisor && chmod a+x /start.sh
 ADD kafka_2.12-2.3.0 kafka_2.12-2.3.0
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 EXPOSE 2181 9092
-CMD ["/usr/bin/supervisord","-c","/etc/supervisor/conf.d/supervisord.conf"]
+CMD ["/start.sh"]
