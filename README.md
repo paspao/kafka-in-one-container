@@ -2,11 +2,11 @@ Kafka in One container
 ======================
 [![Build Status](https://travis-ci.org/paspao/kafka-in-one-container.svg?branch=master)](https://travis-ci.org/paspao/kafka-in-one-container)
 
-In many situations, I need an instance of Kafka for development purpose - if you develop services in a microservice architecture you know my problem! - but the lastest versions of Kafka need an instance of Zookeeper to start, this is very frustrating, you need a docker-compose only to make a test.
+Often, I need an instance of Kafka for development purpose - if you develop services in a microservice architecture you know my problem! - but the lastest versions of Kafka need an instance of Zookeeper to start. It’s very frustrating that you need a docker-compose only to make a test!
 
-In most cases you don't need a cluster to test your work but only a single broker, so I have created a docker image containing Zookeeper and Kafka (version 2.12-2.3.0) together, the container starts one instance of **supervisor** that manage the processes life.
+In most cases you don't need a cluster to test your work but only a single broker, so I have created a docker image containing Zookeeper and Kafka (version 2.12-2.3.0) together, the container starts one instance of **supervisor** [http://supervisord.org/](http://supervisord.org/) that manage the processes life.
 
-I show you how step-by-step:
+I'll show you how to do step by step:
 
 Download a stable version of Kafka from [https://kafka.apache.org/](https://kafka.apache.org/), then:
 
@@ -21,7 +21,7 @@ EXPOSE 2181 9092
 CMD ["/start.sh"]
 ```
 
-* In the first line I have chosen *adoptopenjdk* as base image because it is debian based (I want use *apt*) and it has a valid openjdk already installed
+* In the first line I want to use *adoptopenjdk* as base image because it is debian based (I want to use *apt*) and it has a valid openjdk already installed
 * COPY the *start.sh* file in the root (details below)
 * An *apt update* it's needed to synchronize the package manager repositories
 * Then install supervisor and add a copy of Kafka as is and copy the following *supervisor.conf* file
