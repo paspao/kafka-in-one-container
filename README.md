@@ -21,12 +21,12 @@ EXPOSE 2181 9092
 CMD ["/start.sh"]
 ```
 
-* In the first line I choosed *adoptopenjdk* as base image because it is debian based (I want use *apt*) and it has a valid openjdk already installed
+* In the first line I have chosen *adoptopenjdk* as base image because it is debian based (I want use *apt*) and it has a valid openjdk already installed
 * COPY the *start.sh* file in the root (details below)
-* An *apt update* it's needed to syncronyze the package manager repositories
+* An *apt update* it's needed to synchronize the package manager repositories
 * Then install supervisor and add a copy of Kafka as is and copy the following *supervisor.conf* file
 
-The *start.sh* manage the environment variable *KAFKA_ADVERTISED_LISTNERS* used to configure the Kafka advertise url.
+The *start.sh* manages the environment variable *KAFKA_ADVERTISED_LISTNERS* used to configure the Kafka advertise url.
 
 ```bash
 #!/bin/bash -e
@@ -73,13 +73,13 @@ Build
 -----
 
 ```bash
-docker build -t paspaola/kafka-one-container:0.0.1 .
+docker build -t paspaola/kafka-one-container .
 ```
 
 Run
 ---
 
 ```bash
-docker run -it -p2181:2181 -p9092:9092 -e "KAFKA_ADVERTISED_LISTNERS={your-host-address}" paspaola/kafka-one-container:0.0.1
+docker run -it -p2181:2181 -p9092:9092 -e "KAFKA_ADVERTISED_LISTNERS={your-host-address}" paspaola/kafka-one-container
 ```
 
